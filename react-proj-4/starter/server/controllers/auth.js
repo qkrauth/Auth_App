@@ -52,7 +52,7 @@ module.exports = {
                 const isAuthenticated = bcrypt.compareSync(password, foundUser.hashedPass)
 
                 if (isAuthenticated) {
-                    const token = createToken(foundUser.dataValues.username, foundUser.data.id)
+                    const token = createToken(foundUser.dataValues.username, foundUser.dataValues.id)
                     const exp = Date.now() + 1000 * 60 * 60 * 48
                     res.status(200).send({
                         username: foundUser.dataValues.username,
